@@ -1,0 +1,23 @@
+# Visual Studio Code
+.vscode/
+
+# Build Folders
+bin/
+obj/
+
+# Publish / output folders
+publish/
+out/
+dist/
+
+# Local configuration files / secrets
+appsettings.Local.json
+appsettings.Development.json
+secrets.json
+.env
+
+# Logs, temp, OS
+*.log
+*.tmp
+*.temp
+.DS_Store
