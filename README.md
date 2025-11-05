@@ -54,9 +54,15 @@ dotnet tool install -g Microsoft.Web.LibraryManager.Cli
 
 ```bash
 # Restore packages
-dotnet restore
+dotnet restore "Assessment 8.csproj"
 libman restore
-dotnet build --configuration Debug
+
+# Build the project
+dotnet build "Assessment 8.csproj" --configuration Debug
+
+# Run the application (either of the two commands)
+dotnet run
+# or
 dotnet run --project "Assessment 8.csproj"
 ```
 
