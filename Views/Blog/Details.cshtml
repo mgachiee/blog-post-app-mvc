@@ -1,0 +1,17 @@
+@model Assessment_8.Models.PostModel
+
+@{
+  ViewData["Title"] = "Blog Post Details";
+}
+
+<div class="d-flex flex-column align-items-start mt-4" style="max-width:600px;">
+  <a href="javascript:history.back()" class="btn btn-link text-decoration-none text-dark">
+    <i class="bi bi-arrow-left"></i> Back
+  </a>
+
+  <div class="mt-4" style="max-width:600px;">
+    <h5>@Model.Title</h5>
+    <p><strong>Author:</strong> @Model.Author</p>
+    <p style="white-space: pre-wrap;">@Model.Content</p>
+  </div>
+</div>
