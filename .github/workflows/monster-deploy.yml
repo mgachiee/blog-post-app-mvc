@@ -33,4 +33,4 @@ jobs:
         server-computer-name: ${{ secrets.WEBSITE_SERVER }}
         server-username: ${{ secrets.WEBSITE_USERNAME }}
         server-password: ${{ secrets.WEBSITE_PASSWORD }}
-        source-path: './publish'
+        source-path: 'publish'
