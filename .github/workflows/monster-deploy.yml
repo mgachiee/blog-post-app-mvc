@@ -15,6 +15,11 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '9.0.x'
+    
+    - name: Set up LibMan
+      run: |
+        dotnet tool install -g Microsoft.Web.LibraryManager.Cli
+        echo "::add-path::${{env.USERPROFILE}}\.dotnet\tools"
 
     - name: Build and publish
       run: |
