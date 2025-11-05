@@ -10,6 +10,14 @@ publish/
 out/
 dist/
 
+# NuGet Packages
+*.nupkg
+*.snupkg
+
+# Library packages
+packages/
+lib/
+
 # Local configuration files / secrets
 appsettings.Local.json
 appsettings.Development.json
