@@ -1,0 +1,32 @@
+name: Deploy to MonsterASP.NET
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up .NET 9.0
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+
+    - name: Build and publish
+      run: |
+        dotnet restore
+        dotnet build --configuration Release
+        dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+
+    - name: Deploy to MonsterASP.NET via WebDeploy
+      uses: rasmusbuchholdt/simply-web-deploy@v2
+      with:
+        website-name: ${{ secrets.WEBSITE_NAME }}
+        server-computer-name: ${{ secrets.WEBSITE_SERVER }}
+        server-username: ${{ secrets.WEBSITE_USERNAME }}
+        server-password: ${{ secrets.WEBSITE_PASSWORD }}
+        source-path: '${{env.DOTNET_ROOT}}/myapp'
