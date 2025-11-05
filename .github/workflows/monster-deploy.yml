@@ -19,11 +19,12 @@ jobs:
     - name: Build and publish
       run: |
         dotnet restore
+        libman restore
         dotnet build --configuration Release
         dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
     - name: Deploy to MonsterASP.NET via WebDeploy
-      uses: rasmusbuchholdt/simply-web-deploy@v2
+      uses: rasmusbuchholdt/simply-web-deploy@2.2.0
       with:
         website-name: ${{ secrets.WEBSITE_NAME }}
         server-computer-name: ${{ secrets.WEBSITE_SERVER }}
