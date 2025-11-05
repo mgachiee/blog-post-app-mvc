@@ -1,0 +1,10 @@
+@model IEnumerable<Assessment_8.Models.PostModel>
+
+@{
+  ViewData["Title"] = "Blog Posts";
+}
+
+@foreach (PostModel post in Model)
+{
+  @await Component.InvokeAsync("BlogCard", post)
+}
