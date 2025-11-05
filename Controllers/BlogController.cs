@@ -9,10 +9,12 @@ namespace Assessment_8.Controllers;
 public class BlogController : Controller
 {
   private readonly IPostService _postService;
+  private readonly ILogger<BlogController> _logger;
 
-  public BlogController(IPostService postService)
+  public BlogController(IPostService postService, ILogger<BlogController> logger)
   {
     _postService = postService;
+    _logger = logger;
   }
 
   public IActionResult Index()
@@ -35,5 +37,11 @@ public class BlogController : Controller
   {
     Response.StatusCode = (int)HttpStatusCode.NotFound;
     return View("NotFound");
+  }
+
+  [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+  public IActionResult Error()
+  {
+    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
   }
 }

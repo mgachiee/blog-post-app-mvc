@@ -4,20 +4,7 @@
   ViewData["Title"] = "Blog Posts";
 }
 
-<div class="mt-4" style="max-width:600px;">
-  <h5>Blog Posts</h5>
-  <ul class="list-group">
-    @foreach (var item in Model)
-    {
-      <li class="list-group-item">
-        <a asp-controller="Blog" asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none text-dark">
-          <strong>@item.Title</strong> - @item.Author
-          @{
-            string truncatedContent = item.Content.Length > 100 ? item.Content.Substring(0, 100) + "..." : item.Content;
-          }
-          <p style="white-space: pre-wrap;">@truncatedContent</p>
-        </a>
-      </li>
-    }
-  </ul>
-</div>
+@foreach (PostModel post in Model)
+{
+  @await Component.InvokeAsync("BlogCard", post)
+}

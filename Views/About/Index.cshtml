@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "About Us";
+
+    @* Team Details *@
+    IEnumerable<(string Name, string Role, string ImageUrl)> teamMembers = new List<(string, string, string)>
+    {
+        ("Mark Allen Bobadilla", "Developer",
+        "https://media.licdn.com/dms/image/v2/D5603AQFT2BgrwAgySg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721736437561?e=1764201600&v=beta&t=_IvFJZguBBpgKagm7LWSLr0r1us-Sm2d1KqEBCU-JI4"),
+        ("Sharwyn Degulacion", "Developer",
+        "https://media.licdn.com/dms/image/v2/D5603AQE3z-Ul7J0omg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1697979156273?e=1764201600&v=beta&t=BruPdn6vXfCeyC6EjbDEHzVaOR-2sL05Lnme81zOQvs"),
+        ("Marcus Jenne Gutierrez", "Developer",
+        "https://media.licdn.com/dms/image/v2/D5603AQEEAZ-9zJH5Jw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1731069693178?e=1764201600&v=beta&t=SXQ2fBeWaIoAtrcwnL6RxD3W-cCLfLpPJYdRQ1_xLoY"),
+        ("Karl Joseph Logdat", "Developer", "https://cdn.pfps.gg/pfps/2301-default-2.png")
+    };
+}
+
+@await Component.InvokeAsync("HeroSection")
+@await Component.InvokeAsync("ProjectOverview")
+@await Component.InvokeAsync("FeaturesSection")
+@await Component.InvokeAsync("TeamSection", teamMembers)
+@await Component.InvokeAsync("CallToAction")
