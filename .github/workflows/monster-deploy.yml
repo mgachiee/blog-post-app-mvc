@@ -20,12 +20,11 @@ jobs:
       run: dotnet tool install -g Microsoft.Web.LibraryManager.Cli
 
     - name: Build and publish
-      working-directory: ./blog-post-app-mvc
       run: |
         dotnet restore
         libman restore
         dotnet build --configuration Release
-        dotnet publish -c Release -o ../publish # <--- Puts the output in a 'publish' folder at the root
+        dotnet publish -c Release -o ./publish
 
     - name: Deploy to MonsterASP.NET via WebDeploy
       uses: rasmusbuchholdt/simply-web-deploy@2.2.0
